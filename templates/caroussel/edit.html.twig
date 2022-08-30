@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Caroussel
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Edit Caroussel</h1>
+		<div class="validation">
+			{{ include('caroussel/_form.html.twig', {'button_label': 'mise à jour'}) }}
+			<a href="{{ path('app_caroussel_index') }}" class="btn btn-primary">retour à la liste</a>
+		</div>
+		{{ include('caroussel/_delete_form.html.twig') }}
+
+	</div>
+{% endblock %}

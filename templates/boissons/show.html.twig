@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boissons
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Boissons</h1>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ boisson.id }}</td>
+				</tr>
+				<tr>
+					<th>Nom</th>
+					<td>{{ boisson.nom }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					<td>{{ boisson.prix }}</td>
+				</tr>
+				<tr>
+					<th>Photo</th>
+					<td>{{ boisson.photo }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_boissons_index') }}">back to list</a>
+
+		<a href="{{ path('app_boissons_edit', {'id': boisson.id}) }}">edit</a>
+
+		{{ include('boissons/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

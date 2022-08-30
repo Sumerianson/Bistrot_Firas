@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plats
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Plats</h1>
+
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col">
+				<div class="card h-100">
+					<img src="{{ asset ('uploads/images/') }}{{ plat.photo }}" class="card-img-top" alt="...">
+
+					<div class="card-body">
+						<h5 class="card-title">{{ plat.nom }}</h5>
+
+						<p class="card-text">{{ plat.description }}</p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted">{{ plat.prix }}
+							€</small>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="validation">
+			<a href="{{ path('app_plats_index') }}" class="btn btn-primary">retour à la liste</a>
+
+			<a href="{{ path('app_plats_edit', {'id': plat.id}) }}" class="btn btn-warning">éditer</a>
+
+			{{ include('plats/_delete_form.html.twig') }}
+		</div>
+	</div>
+{% endblock %}

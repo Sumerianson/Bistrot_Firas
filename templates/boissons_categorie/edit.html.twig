@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit BoissonsCategorie
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Edit BoissonsCategorie</h1>
+
+		{{ include('boissons_categorie/_form.html.twig', {'button_label': 'mise à jour'}) }}
+
+		<a href="{{ path('app_boissons_categorie_index') }}" class="btn btn-primary">back to list</a>
+
+		{{ include('boissons_categorie/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

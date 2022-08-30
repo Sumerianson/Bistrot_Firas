@@ -1,0 +1,113 @@
+<header>
+
+	<!-- Navbar primaire -->
+
+	<nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark" id="nav1">
+
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul
+					class="navbar-nav me-auto mb-2 mb-lg-0">
+
+					{# Partie pour l'utilisateur #}
+					{% if app.user %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								mon compte
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_profile') }}">mon profil</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Another action</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+					{% endif %}
+
+					{# Réserver à l'administrateur #}
+
+					{% if is_granted ('ROLE_ADMIN') %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								administration
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_plats_index') }}">les plats</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_formule_index') }}">les formules</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_boissons_index') }}">les boissons</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_boissons_categorie_index') }}">les catégories de boissons</a>
+
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">les réservations</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">les commandes</a>
+								</li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{ path ('app_user_index') }}">les utilisateurs</a>
+								</li>
+							</ul>
+						</li>
+					{% endif %}
+				</ul>
+
+				<!-- Buttons connexion / déconnexion -->
+				{% if app.user %}
+					<li>
+						<a type="button" href="{{ path ('app_logout') }}" class="btn btn-light">déconnexion</a>
+					</li>
+					<li>
+						<i class="fas fa-shopping-cart"></i>
+					</li>
+				{% else %}
+					<li>
+						<a type="button" href="{{ path ('app_login') }}" class="btn btn-light">connexion</a>
+					</li>
+					<li>
+						<a type="button" href="{{ path ('app_register') }}" class="btn btn-light">s'enregistrer</a>
+					</li>
+				{% endif %}
+				<li>
+					<i class="fa-solid fa-cart-shopping"></i>
+
+				</li>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Navbar secondaire -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-transparent" id="nav2">
+		<div class="container-fluid">
+			<a type="button" href="{{ path ('app_carte') }}" class="btn">la carte</a>
+			<a type="button" href="{{ path ('app_formule_index') }}" class="btn">les formules</a>
+			<a type="button" href="" class="btn">réserver une table</a>
+			<a type="button" href="" class="btn">commander</a>
+		</div>
+	</nav>
+
+	<!-- Insertion du logo du bistrot -->
+
+	<a href="{{ path ('app_home') }}"><img src="{{ asset ('img/logo/logo.png') }}" alt="logo" srcset="" id="babylon-logo" title="Accueil"></a>
+</header>

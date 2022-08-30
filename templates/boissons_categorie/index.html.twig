@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BoissonsCategorie index
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>BoissonsCategorie index</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for boissons_categorie in boissons_categories %}
+					<tr>
+						<td>{{ boissons_categorie.id }}</td>
+						<td>{{ boissons_categorie.nom }}</td>
+						<td>
+							<a href="{{ path('app_boissons_categorie_show', {'id': boissons_categorie.id}) }}">show</a>
+							<a href="{{ path('app_boissons_categorie_edit', {'id': boissons_categorie.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_boissons_categorie_new') }}">Create new</a>
+	</div>
+{% endblock %}

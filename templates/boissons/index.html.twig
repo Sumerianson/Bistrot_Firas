@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boissons index
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Boissons index</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Photo</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for boisson in boissons %}
+					<tr>
+						<td>{{ boisson.id }}</td>
+						<td>{{ boisson.nom }}</td>
+						<td>{{ boisson.prix }}</td>
+						<td>{{ boisson.photo }}</td>
+						<td>
+							<a href="{{ path('app_boissons_show', {'id': boisson.id}) }}" class="btn btn-light">montrer</a>
+							<a href="{{ path('app_boissons_edit', {'id': boisson.id}) }}" class="btn btn-warning">éditer</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_boissons_new') }}" class="btn btn-primary">Créer une boisson</a>
+	</div>
+{% endblock %}

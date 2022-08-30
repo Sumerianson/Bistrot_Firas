@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau plat
+{% endblock %}
+
+{% block body %}
+	<div class="page">
+		<h1>Créer un nouveau plat</h1>
+
+		{{ include('plats/_form.html.twig') }}
+		<div class="validation">
+			<a href="{{ path('app_plats_index') }}" class="btn btn-primary">retour à la liste</a>
+
+		</div>
+	</div>
+{% endblock %}
