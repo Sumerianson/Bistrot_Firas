@@ -27,8 +27,7 @@
 						<td>{{ formule.prix }}</td>
 						<td>{{ formule.photo }}</td>
 						<td>
-							<a href="{{ path ('app_formule_show', {'id': formule.id}) }}">monter</a>
-							<a href="{{ path ('app_formule_edit', {'id': formule.id}) }}">éditer</a>
+							<a href="{{ path ('app_formule_show', {'id': formule.id}) }}" class="btn btn-light btn-sm text-light bg-dark"><i class="bi bi-eye"></i></a>
 							<a href="{{ path ('app_carte_add', {'id': formule.id}) }}" class="btn btn-primary btn-sm text-light bg-dark">
 							<i class="fas fa-shopping-cart"></i> Ajouter
 							</a>

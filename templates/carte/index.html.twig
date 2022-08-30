@@ -21,14 +21,12 @@
 	        	<td>{{ item.formule.nom }}</td>
 	        	<td>{{ item.formule.prix}} €</td>
 	        	<td>
-					<a href="{{ path ('app_carte_add', {'id': item.formule.id}) }}" class="text-success fs-4">
-					<i class="bi bi-bag-plus-fill"></i>		
-					</a>
-
-					{{ item.quantity }}
-					
 					<a href="{{ path ('app_carte_remove', {'id': item.formule.id}) }}" class="text-warning fs-4">
 					<i class="bi bi-bag-dash-fill"></i>		
+					</a>
+					{{ item.quantity }}
+					<a href="{{ path ('app_carte_add', {'id': item.formule.id}) }}" class="text-success fs-4">
+					<i class="bi bi-bag-plus-fill"></i>		
 					</a>
 				</td>
 	        	<td>{{ item.formule.prix * item.quantity }} €</td>
